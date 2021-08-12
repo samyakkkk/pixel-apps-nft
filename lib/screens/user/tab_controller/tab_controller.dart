@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pixel_apps_ntf/providers/common/theme_provider.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 
 class UserTabBarController extends StatefulWidget {
   static const String id = "/userTabBarController";
@@ -23,20 +22,21 @@ class _TabBarControllerState extends State<UserTabBarController>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       appBar: AppBar(
-        leading: Icon(Icons.menu),
-        title: Text("PixelApps NFT"),
-        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actionsIconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: false,
+        title: Text("PixelApps NFT", style: TextStyle(color: Colors.black)),
         actions: [
           IconButton(
-              onPressed: () {
-                context.read(themeProvider).switchTheme();
-                setState(() {});
-              },
-              icon: Icon(Icons.light))
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
         ],
       ),
-      drawer: Drawer(),
+      // drawer: Drawer(),
       bottomNavigationBar: Container(
         color: Colors.amber,
         child: TabBar(
@@ -44,7 +44,7 @@ class _TabBarControllerState extends State<UserTabBarController>
           controller: controller,
           tabs: [
             Tab(text: "HOME", icon: Icon(Icons.home)),
-            Tab(text: "EXPLORE", icon: Icon(Icons.explore)),
+            Tab(text: "DISCOVER", icon: Icon(Icons.explore)),
             Tab(text: "PROFILE", icon: Icon(Icons.person)),
           ],
         ),
@@ -52,15 +52,9 @@ class _TabBarControllerState extends State<UserTabBarController>
       body: TabBarView(
         controller: controller,
         children: [
+          UserHomeScreen(),
           Container(
-            color: Colors.amber,
-            child: Text(
-              "HOME",
-              style: TextStyle(color: colors.kColorWhite),
-            ),
-          ),
-          Container(
-            child: Text("EXPLORE"),
+            child: Text("DISCOVER"),
           ),
           Container(
             child: Text("PROFILE"),

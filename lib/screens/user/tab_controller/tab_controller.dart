@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 
@@ -17,6 +18,9 @@ class _TabBarControllerState extends State<UserTabBarController>
   void initState() {
     super.initState();
     controller = TabController(length: 3, vsync: this);
+    controller.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -28,7 +32,7 @@ class _TabBarControllerState extends State<UserTabBarController>
         backgroundColor: Colors.transparent,
         actionsIconTheme: IconThemeData(color: Colors.black),
         automaticallyImplyLeading: false,
-        title: Text("PixelApps NFT", style: TextStyle(color: Colors.black)),
+        title: Text("PixelApps NFT", style: textStyles.kTextTitlePrimary),
         actions: [
           IconButton(
             icon: Icon(Icons.menu),
@@ -37,27 +41,87 @@ class _TabBarControllerState extends State<UserTabBarController>
         ],
       ),
       // drawer: Drawer(),
-      bottomNavigationBar: Container(
-        color: Colors.amber,
-        child: TabBar(
-          indicatorColor: Colors.transparent,
-          controller: controller,
-          tabs: [
-            Tab(text: "HOME", icon: Icon(Icons.home)),
-            Tab(text: "DISCOVER", icon: Icon(Icons.explore)),
-            Tab(text: "PROFILE", icon: Icon(Icons.person)),
-          ],
-        ),
-      ),
-      body: TabBarView(
-        controller: controller,
+      // bottomNavigationBar: ,
+      body: Stack(
         children: [
-          UserHomeScreen(),
-          Container(
-            child: Text("DISCOVER"),
+          TabBarView(
+            controller: controller,
+            children: [
+              UserHomeScreen(),
+              Container(
+                child: Text("DISCOVER"),
+              ),
+              Container(
+                child: Text("PROFILE"),
+              ),
+            ],
           ),
-          Container(
-            child: Text("PROFILE"),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.all(sizes.mediumPadding),
+              child: Container(
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 8,
+                      offset: Offset(8, 5),
+                      color: Colors.grey[400]!,
+                      spreadRadius: 0.2,
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(34),
+                ),
+                child: Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(34),
+                    ),
+                    child: GNav(
+                        tabs: [
+                          GButton(
+                              gap: 10,
+                              iconActiveColor: Colors.purple,
+                              iconColor: Colors.black,
+                              textColor: Colors.purple,
+                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconSize: 24,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 8),
+                              icon: Icons.home,
+                              text: "Home"),
+                          GButton(
+                              gap: 10,
+                              iconActiveColor: Colors.purple,
+                              iconColor: Colors.black,
+                              textColor: Colors.purple,
+                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconSize: 24,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 8),
+                              icon: Icons.explore,
+                              text: "Discover"),
+                          GButton(
+                              gap: 10,
+                              iconActiveColor: Colors.purple,
+                              iconColor: Colors.black,
+                              textColor: Colors.purple,
+                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconSize: 24,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 8),
+                              icon: Icons.person,
+                              text: "Profile"),
+                        ],
+                        selectedIndex: controller.index,
+                        onTabChange: (index) {
+                          controller.animateTo(index);
+                        })),
+              ),
+            ),
           ),
         ],
       ),

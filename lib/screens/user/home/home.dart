@@ -7,6 +7,7 @@ import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart'
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/vertical_post_card.dart';
+import 'package:pixel_apps_ntf/screens/user/auction/auction.dart';
 import 'package:pixel_apps_ntf/screens/user/home/widget/search_bar.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
@@ -40,6 +41,8 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             SearchBar(),
             Sizer.vertical20(),
             PostCard(
+              onPress: () => Navigator.pushNamed(context, AuctionScreen.id,
+                  arguments: "c"),
               imageUrl: "https://source.unsplash.com/random",
               userProfileUrl: "https://source.unsplash.com/random",
               title: "Silent Wave",
@@ -94,6 +97,13 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               itemBuilder: (_, i) => Column(
                 children: [
                   PostCard(
+                    onPress: () =>
+                        Navigator.pushNamed(context, AuctionScreen.id,
+                            arguments: i % 3 == 0
+                                ? "c"
+                                : i % 3 == 1
+                                    ? "r"
+                                    : "s"),
                     imageUrl: "https://source.unsplash.com/random",
                     userProfileUrl: "https://source.unsplash.com/random",
                     title: "Silent Wave $i",
@@ -165,6 +175,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               height: 1,
               color: Colors.grey[300],
             ),
+            Sizer.vertical48(),
           ],
         ),
       ),

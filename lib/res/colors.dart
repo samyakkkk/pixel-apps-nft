@@ -6,6 +6,7 @@ class AppColors {
   final kColorFontPrimary = Color(0xff222222);
   final kColorFontSecondary = Color(0xff333333);
   final kColorFontSubSecondary = Color(0xff555555);
+  final kColorFontPlaceholder = Color(0xff888888);
   final kColorBtnBlue = Color(0xff0038F5);
   final kColorBtnPurple = Color(0xff9F03FF);
 }

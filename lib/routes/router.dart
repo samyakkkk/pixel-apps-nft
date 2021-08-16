@@ -2,15 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/screens/common/initial_screen.dart';
 import 'package:pixel_apps_ntf/screens/common/splash_screen.dart';
+import 'package:pixel_apps_ntf/screens/user/auction/auction.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
 
 class AppRouter {
   static Route router(RouteSettings settings) {
-    // final dynamic args = settings.arguments;
+    final dynamic args = settings.arguments;
     switch (settings.name) {
       // User
       case UserTabBarController.id:
         return MaterialPageRoute(builder: (_) => UserTabBarController());
+      case AuctionScreen.id:
+        return MaterialPageRoute(
+            builder: (_) => AuctionScreen(status: args as String));
 
       // Creator
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 
 class UserTabBarController extends StatefulWidget {
@@ -34,6 +35,12 @@ class _TabBarControllerState extends State<UserTabBarController>
         automaticallyImplyLeading: false,
         title: Text("PixelApps NFT", style: textStyles.kTextTitlePrimary),
         actions: [
+          Visibility(
+              visible: controller.index == 1,
+              child: IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              )),
           IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {},
@@ -48,9 +55,8 @@ class _TabBarControllerState extends State<UserTabBarController>
             controller: controller,
             children: [
               UserHomeScreen(),
-              Container(
-                child: Text("DISCOVER"),
-              ),
+              UserDiscoverScreen(),
+              // UserProfileScreen(),
               Container(
                 child: Text("PROFILE"),
               ),

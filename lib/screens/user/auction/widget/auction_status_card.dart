@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
+import 'package:pixel_apps_ntf/screens/user/auction/widget/place_bid.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 class SoldCard extends StatelessWidget {
@@ -83,7 +84,15 @@ class ReserveCard extends StatelessWidget {
         ),
         Sizer.vertical32(),
         LongSolidButton(
-          onPress: () {},
+          onPress: () => showDialog(
+            context: context,
+            builder: (_) => Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: PlaceBidDialog(),
+            ),
+          ),
           text: "Place a bid",
           colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
         ),
@@ -151,7 +160,15 @@ class CurrentCard extends StatelessWidget {
         ),
         Sizer.vertical32(),
         LongSolidButton(
-          onPress: () {},
+          onPress: () => showDialog(
+            context: context,
+            builder: (_) => Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: PlaceBidDialog(),
+            ),
+          ),
           text: "Place a bid",
           colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
         ),

@@ -4,6 +4,7 @@ import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
+import 'package:pixel_apps_ntf/screens/user/search/search_popup.dart';
 
 class UserTabBarController extends StatefulWidget {
   static const String id = "/userTabBarController";
@@ -40,7 +41,10 @@ class _TabBarControllerState extends State<UserTabBarController>
               visible: controller.index == 1,
               child: IconButton(
                 icon: Icon(Icons.search),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => SearchPopupScreen()));
+                },
               )),
           IconButton(
             icon: Icon(Icons.menu),

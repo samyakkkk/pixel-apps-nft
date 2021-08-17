@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 
 class SearchBar extends StatelessWidget {
+  final bool focus;
   const SearchBar({
     Key? key,
+    required this.focus,
   }) : super(key: key);
 
   @override
@@ -17,6 +19,7 @@ class SearchBar extends StatelessWidget {
         contentPadding:
             EdgeInsets.symmetric(vertical: 0, horizontal: sizes.smallPadding),
         title: TextFormField(
+          autofocus: focus,
           decoration: InputDecoration(
               border: InputBorder.none,
               focusedBorder: InputBorder.none,

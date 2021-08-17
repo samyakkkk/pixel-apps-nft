@@ -9,6 +9,7 @@ import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/vertical_post_card.dart';
 import 'package:pixel_apps_ntf/screens/user/auction/auction.dart';
 import 'package:pixel_apps_ntf/screens/user/home/widget/search_bar.dart';
+import 'package:pixel_apps_ntf/screens/user/search/search_result.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 class UserHomeScreen extends StatefulWidget {
@@ -38,7 +39,11 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               style: textStyles.kTextLargeText,
             ),
             Sizer.vertical24(),
-            SearchBar(),
+            InkWell(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => SearchResultScreen())),
+                child: AbsorbPointer(
+                    absorbing: true, child: SearchBar(focus: false))),
             Sizer.vertical20(),
             PostCard(
               onPress: () => Navigator.pushNamed(context, AuctionScreen.id,

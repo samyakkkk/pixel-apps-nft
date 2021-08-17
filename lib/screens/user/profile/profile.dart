@@ -12,7 +12,7 @@ class UserProfileScreen extends StatefulWidget {
   final bool me;
   const UserProfileScreen({Key? key, required this.me}) : super(key: key);
 
-  static const int itemCount = 0;
+  static const int itemCount = 5;
 
   @override
   _UserProfileScreenState createState() => _UserProfileScreenState();

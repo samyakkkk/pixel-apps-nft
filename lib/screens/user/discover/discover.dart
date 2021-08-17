@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
+import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 import 'widget/discover_creator_card.dart';
@@ -30,7 +31,11 @@ class UserDiscoverScreen extends StatelessWidget {
             ListView.separated(
               primary: false,
               shrinkWrap: true,
-              itemBuilder: (_, i) => DiscoverCreatorCard(),
+              itemBuilder: (_, i) => InkWell(
+                child: DiscoverCreatorCard(),
+                onTap: () => Navigator.pushNamed(context, UserProfileScreen.id,
+                    arguments: false),
+              ),
               separatorBuilder: (_, __) => Sizer(),
               itemCount: 4,
             ),

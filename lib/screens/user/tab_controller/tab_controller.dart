@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
+import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 
 class UserTabBarController extends StatefulWidget {
   static const String id = "/userTabBarController";
@@ -56,10 +57,7 @@ class _TabBarControllerState extends State<UserTabBarController>
             children: [
               UserHomeScreen(),
               UserDiscoverScreen(),
-              // UserProfileScreen(),
-              Container(
-                child: Text("PROFILE"),
-              ),
+              UserProfileScreen(me: true),
             ],
           ),
           Align(

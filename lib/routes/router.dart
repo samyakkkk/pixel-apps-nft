@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/screens/common/initial_screen.dart';
 import 'package:pixel_apps_ntf/screens/common/splash_screen.dart';
 import 'package:pixel_apps_ntf/screens/user/auction/auction.dart';
+import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
 
 class AppRouter {
@@ -15,6 +16,9 @@ class AppRouter {
       case AuctionScreen.id:
         return MaterialPageRoute(
             builder: (_) => AuctionScreen(status: args as String));
+      case UserProfileScreen.id:
+        return MaterialPageRoute(
+            builder: (_) => UserProfileScreen(me: args as bool));
 
       // Creator
 

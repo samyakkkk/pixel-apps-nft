@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/account.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/custom_icon_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/notification.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
@@ -30,6 +32,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               backgroundColor: Colors.transparent,
               iconTheme: IconThemeData(color: Colors.black),
             ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (_) => Dialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: AccountDialog(),
+                    ));
+          },
+          child: Icon(Icons.ac_unit)),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

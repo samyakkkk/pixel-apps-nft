@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fluid_slider/flutter_fluid_slider.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/home/widget/search_bar.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
@@ -15,6 +17,8 @@ class SearchResultScreen extends StatefulWidget {
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
   double _currentSliderValue = 0.1;
+  String? _chosenValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,17 +65,24 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
               Sizer.vertical24(),
               Text("Price range", style: textStyles.kTextTitle),
               Sizer(),
-              Slider(
+              FluidSlider(
                 value: _currentSliderValue,
-                min: 0.0,
-                max: 100,
-                activeColor: colors.kColorBtnBlue,
-                label: _currentSliderValue.toString(),
-                onChanged: (double value) {
+                end: Text("100 ETH"),
+                start: Text("0.1 ETH"),
+                onChanged: (double newValue) {
                   setState(() {
-                    _currentSliderValue = value;
+                    _currentSliderValue = newValue;
                   });
                 },
+                showDecimalValue: true,
+                sliderColor: colors.kColorBtnPurple.withOpacity(0.5),
+                thumbColor: colors.kColorBtnBlue,
+                labelsTextStyle: textStyles.kTextRegular,
+                thumbDiameter: 50,
+                valueTextStyle:
+                    textStyles.kTextSubtitle.copyWith(color: Colors.white),
+                min: 0.1,
+                max: 100.0,
               ),
               Sizer.vertical24(),
               Text("Chains", style: textStyles.kTextTitle),
@@ -123,6 +134,44 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                       ),
                     )
                     .toList(),
+              ),
+              Sizer.vertical24(),
+              Text("Creator", style: textStyles.kTextTitle),
+              Sizer(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                padding: const EdgeInsets.all(8.0),
+                child: DropdownButton<String>(
+                  value: _chosenValue,
+                  isDense: true,
+                  isExpanded: true,
+                  iconEnabledColor: Colors.black,
+                  items: <String>["Verified Only", "Unverified Only", "All"]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: textStyles.kTextRegular,
+                      ),
+                    );
+                  }).toList(),
+                  hint: Text(
+                    "Please choose",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _chosenValue = value;
+                    });
+                  },
+                ),
               ),
               Sizer.vertical24(),
               Divider(

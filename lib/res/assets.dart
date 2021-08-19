@@ -7,12 +7,12 @@ class Assets {
   final String backArrow = "assets/icon/back_arrow.svg";
   final String bell = "assets/icon/bell.svg";
   final String starBorder = "assets/icon/bold_star.svg";
-  final String connectWallet = "assets/icon/connect_wallet.svg";
+  final String connectWalletPng = "assets/image/connect_wallet.png";
   final String copy = "assets/icon/copy.svg";
   final String discord = "assets/icon/discord.svg";
   final String dot = "assets/icon/dot.svg";
   final String edit = "assets/icon/edit.svg";
-  final String etherscanPng = "assets/icon/etherscan.png";
+  final String etherscanPng = "assets/image/etherscan.png";
   final String external = "assets/icon/external.svg";
   final String facebook = "assets/icon/facebook.svg";
   final String fire = "assets/icon/fire.svg";

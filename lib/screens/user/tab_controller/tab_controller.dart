@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/user/search/search_popup.dart';
+import 'package:pixel_apps_ntf/utils/sizer.dart';
+
+import 'widget/drawer_view.dart';
 
 class UserTabBarController extends StatefulWidget {
   static const String id = "/userTabBarController";
@@ -18,6 +22,7 @@ class UserTabBarController extends StatefulWidget {
 class _TabBarControllerState extends State<UserTabBarController>
     with SingleTickerProviderStateMixin {
   late TabController controller;
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   void initState() {
     super.initState();
@@ -30,6 +35,7 @@ class _TabBarControllerState extends State<UserTabBarController>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       backgroundColor: colors.kColorBackgroud,
       appBar: AppBar(
         elevation: 0,
@@ -54,12 +60,12 @@ class _TabBarControllerState extends State<UserTabBarController>
               )),
           IconButton(
             icon: Icon(Icons.menu, size: sizes.pagePadding),
-            onPressed: () {},
+            onPressed: () => _key.currentState!.openDrawer(),
           ),
         ],
       ),
-      // drawer: Drawer(),
-      // bottomNavigationBar: ,
+      drawerEnableOpenDragGesture: false,
+      drawer: DrawerView(),
       body: Stack(
         children: [
           TabBarView(

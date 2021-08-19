@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
@@ -53,6 +54,14 @@ class GridCollectionCard extends StatelessWidget {
           ListTile(
             leading: CircleAvatar(
               backgroundImage: NetworkImage(userImage),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: SvgPicture.asset(
+                  assets.dot,
+                  color: Colors.green,
+                  height: sizes.regularPadding,
+                ),
+              ),
             ),
             title: Text("by $username",
                 style: textStyles.kTextTitle.copyWith(fontSize: 13)),
@@ -65,7 +74,8 @@ class GridCollectionCard extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.favorite_border_outlined),
+                  SvgPicture.asset(assets.heart,
+                      height: sizes.semiLargePadding),
                   Sizer.halfHorizontal(),
                   Text("Follow", style: textStyles.kTextRegular),
                 ],

@@ -42,7 +42,7 @@ class UserDiscoverScreen extends StatelessWidget {
             Sizer(),
             LongOutlinedButton(
               onPress: () {},
-              text: "➕   Load more",
+              text: "Load more",
               colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
             ),
             Sizer.vertical64(),

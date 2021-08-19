@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
@@ -67,6 +68,14 @@ class PostCard extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 24,
                       backgroundImage: NetworkImage(userProfileUrl),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: SvgPicture.asset(
+                          assets.dot,
+                          color: Colors.green,
+                          height: sizes.regularPadding,
+                        ),
+                      ),
                     ),
                     title: Text(
                       userName,
@@ -76,7 +85,8 @@ class PostCard extends StatelessWidget {
                       userType,
                       style: textStyles.kTextSubtitle,
                     ),
-                    trailing: Icon(Icons.favorite_border),
+                    trailing: SvgPicture.asset(assets.heart,
+                        height: sizes.pagePadding),
                   ),
                 ],
               ),

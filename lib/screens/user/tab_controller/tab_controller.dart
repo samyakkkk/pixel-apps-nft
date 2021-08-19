@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
@@ -35,19 +36,24 @@ class _TabBarControllerState extends State<UserTabBarController>
         backgroundColor: Colors.transparent,
         actionsIconTheme: IconThemeData(color: Colors.black),
         automaticallyImplyLeading: false,
-        title: Text("PixelApps NFT", style: textStyles.kTextTitlePrimary),
+        title: Row(
+          children: [
+            Image.asset(assets.brandLogoPng, width: 100),
+            Text(" NFT", style: textStyles.kTextTitlePrimary),
+          ],
+        ),
         actions: [
           Visibility(
-              visible: controller.index == 1,
+              visible: controller.index != 0,
               child: IconButton(
-                icon: Icon(Icons.search),
+                icon: SvgPicture.asset(assets.search, width: sizes.pagePadding),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (_) => SearchPopupScreen()));
                 },
               )),
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.menu, size: sizes.pagePadding),
             onPressed: () {},
           ),
         ],

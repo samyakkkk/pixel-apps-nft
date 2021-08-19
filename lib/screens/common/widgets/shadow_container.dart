@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ShadowContainer extends StatelessWidget {
   final Widget child;
+  final BorderRadiusGeometry? borderRadius;
 
   const ShadowContainer({
     Key? key,
+    this.borderRadius,
     required this.child,
   }) : super(key: key);
 
@@ -21,7 +23,7 @@ class ShadowContainer extends StatelessWidget {
             spreadRadius: 0.2,
           ),
         ],
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: borderRadius ?? BorderRadius.circular(16),
       ),
       child: child,
     );

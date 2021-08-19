@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/grid_collection_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
@@ -89,9 +90,13 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             ),
             Sizer.vertical48(),
             ListTile(
+              leading: SvgPicture.asset(assets.dot),
+              minLeadingWidth: 10,
               title: Text("Live auctions", style: textStyles.kTextTitlePrimary),
-              trailing:
-                  OutlinedButton(onPressed: () {}, child: Text("View all")),
+              trailing: OutlinedButton(
+                onPressed: () {},
+                child: Text("View all", style: textStyles.kTextSubtitle),
+              ),
             ),
             Sizer.vertical24(),
             ListView.separated(
@@ -122,19 +127,22 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             ),
             Sizer.vertical48(),
             ListTile(
-              leading: Text("🔥"),
-              minLeadingWidth: 20,
+              leading:
+                  SvgPicture.asset(assets.fire, height: sizes.semiLargePadding),
+              minLeadingWidth: 10,
               title: Text("Hot bid", style: textStyles.kTextTitlePrimary),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
                       onPressed: () => carouselController.previousPage(),
-                      icon: Icon(Icons.arrow_back)),
+                      icon: SvgPicture.asset(assets.backArrow,
+                          height: sizes.pagePadding)),
                   Sizer.halfHorizontal(),
                   IconButton(
                       onPressed: () => carouselController.nextPage(),
-                      icon: Icon(Icons.arrow_forward)),
+                      icon: SvgPicture.asset(assets.forwardArrow,
+                          height: sizes.pagePadding)),
                 ],
               ),
             ),
@@ -158,7 +166,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             ),
             Sizer.vertical48(),
             ListTile(
-              leading: Text("✨"),
+              leading: SvgPicture.asset(assets.star, height: sizes.pagePadding),
               minLeadingWidth: 20,
               title:
                   Text("Hot Collection", style: textStyles.kTextTitlePrimary),

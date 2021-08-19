@@ -5,13 +5,17 @@ class LongSolidButton extends StatelessWidget {
   final Function onPress;
   final String text;
   final List<Color> colorList;
+  final TextStyle? textStyle;
+  final EdgeInsetsGeometry? padding;
 
-  const LongSolidButton(
-      {Key? key,
-      required this.onPress,
-      required this.text,
-      required this.colorList})
-      : super(key: key);
+  const LongSolidButton({
+    Key? key,
+    required this.onPress,
+    required this.text,
+    required this.colorList,
+    this.textStyle,
+    this.padding,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class LongSolidButton extends StatelessWidget {
       onTap: () => onPress(),
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: sizes.mediumPadding),
+        padding: padding ?? EdgeInsets.symmetric(vertical: sizes.mediumPadding),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             gradient: LinearGradient(
@@ -27,9 +31,10 @@ class LongSolidButton extends StatelessWidget {
             )),
         child: Text(text,
             textAlign: TextAlign.center,
-            style: textStyles.kTextBtnText.copyWith(
-              color: Colors.white,
-            )),
+            style: textStyle ??
+                textStyles.kTextBtnText.copyWith(
+                  color: Colors.white,
+                )),
       ),
     );
   }

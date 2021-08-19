@@ -10,7 +10,7 @@ class NotificationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(sizes.regularPadding),
+      padding: EdgeInsets.all(sizes.mediumPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -44,12 +44,15 @@ class NotificationDialog extends StatelessWidget {
           LongSolidButton(
             onPress: () {},
             text: "View all",
+            textStyle: textStyles.kTextTitle.copyWith(color: Colors.white),
             colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
           ),
           Sizer.half(),
           LongOutlinedButton(
             onPress: () {},
             text: "Mark as all read",
+            textStyle:
+                textStyles.kTextTitle.copyWith(color: colors.kColorFontPrimary),
             colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
           ),
         ],

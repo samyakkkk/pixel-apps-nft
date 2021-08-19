@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pixel_apps_ntf/providers/common/theme_provider.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -29,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Pixel Apps NFT"),
+        child: Image.asset("assets/image/logo.png", height: 50),
       ),
     );
   }

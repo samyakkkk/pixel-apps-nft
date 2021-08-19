@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
@@ -18,13 +19,20 @@ class PlaceBidDialog extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: EdgeInsets.all(0),
-            title: Text("Place a bid", style: textStyles.kTextTitlePrimary),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Place a bid", style: textStyles.kTextTitlePrimary),
+                IconButton(
+                    padding: EdgeInsets.all(0),
+                    onPressed: () => Navigator.pop(context),
+                    icon: SvgPicture.asset(assets.close,
+                        height: sizes.pagePadding))
+              ],
+            ),
             subtitle: Text("You must bid atleast 0.852 ETH",
                 style: textStyles.kTextSubtitle),
-            trailing: IconButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () => Navigator.pop(context),
-                icon: Icon(Icons.cancel_outlined)),
+            // trailing: ,
           ),
           Sizer.vertical32(),
           Text("Your bid",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/custom_icon_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
@@ -54,33 +55,47 @@ class _AuctionState extends State<AuctionScreen> {
                         ),
                         Row(
                           children: [
-                            CustomIconButton(
+                            ShadowContainer(
+                              borderRadius: BorderRadius.circular(52),
                               child: IconButton(
                                   onPressed: () {},
-                                  icon: Icon(Icons.favorite_border_outlined)),
+                                  icon: SvgPicture.asset(assets.heart,
+                                      color: colors.kColorFontPrimary,
+                                      height: sizes.semiLargePadding)),
                             ),
                             Sizer.horizontal(),
-                            CustomIconButton(
+                            ShadowContainer(
+                              borderRadius: BorderRadius.circular(52),
                               child: IconButton(
                                   onPressed: () {},
-                                  icon: Icon(Icons.upload_file_outlined)),
+                                  icon: SvgPicture.asset(assets.upload,
+                                      height: sizes.semiLargePadding)),
                             ),
                           ],
                         ),
                       ],
                     ),
                     Sizer(),
-                    Chip(
-                      elevation: 5,
-                      shadowColor: colors.kColorBackgroudSecondary,
-                      backgroundColor: Colors.white,
-                      avatar: CircleAvatar(
-                        backgroundImage:
-                            NetworkImage("https://source.unsplash.com/random"),
-                      ),
-                      label: Text(
-                        "@openart",
-                        style: textStyles.kTextTitle,
+                    ShadowContainer(
+                      borderRadius: BorderRadius.circular(52),
+                      child: Padding(
+                        padding: EdgeInsets.all(sizes.smallPadding),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircleAvatar(
+                              radius: 15,
+                              backgroundImage: NetworkImage(
+                                  "https://source.unsplash.com/random"),
+                            ),
+                            Sizer.halfHorizontal(),
+                            Text(
+                              "@openart",
+                              style: textStyles.kTextTitle,
+                            ),
+                            Sizer.halfHorizontal(),
+                          ],
+                        ),
                       ),
                     ),
                     Sizer(),
@@ -117,28 +132,34 @@ class _AuctionState extends State<AuctionScreen> {
                     Sizer(),
                     ShadowContainer(
                       child: ListTile(
-                        leading: Icon(Icons.ac_unit_rounded),
+                        leading: Image.asset(assets.etherscanPng,
+                            height: sizes.pagePadding),
                         title: Text("View on Etherscan",
                             style: textStyles.kTextTitle),
-                        trailing: Icon(Icons.open_in_new),
+                        trailing: SvgPicture.asset(assets.external,
+                            height: sizes.pagePadding),
                         onTap: () {},
                       ),
                     ),
                     Sizer(),
                     ShadowContainer(
                         child: ListTile(
-                      leading: Icon(Icons.star_border_outlined),
+                      leading: SvgPicture.asset(assets.starBorder,
+                          height: sizes.pagePadding),
                       title: Text("View on IPFS", style: textStyles.kTextTitle),
-                      trailing: Icon(Icons.open_in_new),
+                      trailing: SvgPicture.asset(assets.external,
+                          height: sizes.pagePadding),
                       onTap: () {},
                     )),
                     Sizer(),
                     ShadowContainer(
                         child: ListTile(
-                      leading: Icon(Icons.pie_chart_outline),
+                      leading: SvgPicture.asset(assets.pieChart,
+                          height: sizes.pagePadding),
                       title: Text("View IPFS in Metadata",
                           style: textStyles.kTextTitle),
-                      trailing: Icon(Icons.open_in_new),
+                      trailing: SvgPicture.asset(assets.external,
+                          height: sizes.pagePadding),
                       onTap: () {},
                     )),
                     Sizer.vertical32(),
@@ -180,38 +201,7 @@ class _AuctionState extends State<AuctionScreen> {
                       shrinkWrap: true,
                       itemCount: 5,
                       itemBuilder: (_, i) => ShadowContainer(
-                        child: ListTile(
-                          isThreeLine: true,
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.pink,
-                          ),
-                          title: Text("Auction won by David",
-                              style: textStyles.kTextTitle),
-                          subtitle: RichText(
-                            text: TextSpan(
-                              text: "June 040 2021 at 12:00am\n\n",
-                              style: textStyles.kTextSubtitle,
-                              children: [
-                                true
-                                    ? TextSpan(
-                                        text: "1.50 ETH ",
-                                        style: textStyles.kTextRegular.copyWith(
-                                            fontWeight: FontWeight.w700))
-                                    : TextSpan(
-                                        text: "SOLD for 1.50 ETH ",
-                                        style: textStyles.kTextRegular.copyWith(
-                                            fontWeight: FontWeight.w700)),
-                                true
-                                    ? TextSpan(
-                                        text: "\$2,658.73",
-                                        style: textStyles.kTextSubtitle)
-                                    : TextSpan(text: ""),
-                              ],
-                            ),
-                          ),
-                          trailing: Icon(Icons.open_in_new),
-                          onTap: () {},
-                        ),
+                        child: ActivityTile(),
                       ),
                     ),
                   ],
@@ -222,14 +212,55 @@ class _AuctionState extends State<AuctionScreen> {
               alignment: Alignment.topLeft,
               child: Padding(
                 padding: EdgeInsets.all(sizes.regularPadding),
-                child: CustomIconButton(
+                child: ShadowContainer(
+                    borderRadius: BorderRadius.circular(52),
                     child: IconButton(
-                        onPressed: () {}, icon: Icon(Icons.arrow_back))),
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.arrow_back))),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ActivityTile extends StatelessWidget {
+  const ActivityTile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      isThreeLine: true,
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage("https://source.unsplash.com/random"),
+      ),
+      title: Text("Auction won by David", style: textStyles.kTextTitle),
+      subtitle: RichText(
+        text: TextSpan(
+          text: "June 040 2021 at 12:00am\n\n",
+          style: textStyles.kTextSubtitle,
+          children: [
+            true
+                ? TextSpan(
+                    text: "1.50 ETH ",
+                    style: textStyles.kTextRegular
+                        .copyWith(fontWeight: FontWeight.w700))
+                : TextSpan(
+                    text: "SOLD for 1.50 ETH ",
+                    style: textStyles.kTextRegular
+                        .copyWith(fontWeight: FontWeight.w700)),
+            true
+                ? TextSpan(text: "\$2,658.73", style: textStyles.kTextSubtitle)
+                : TextSpan(text: ""),
+          ],
+        ),
+      ),
+      trailing: SvgPicture.asset(assets.external, height: sizes.pagePadding),
+      onTap: () {},
     );
   }
 }

@@ -1,3 +1,34 @@
 class Assets {
-  final String appLogoPng = "assets/images/logo.png";
+  final String brandLogoPng = "assets/image/logo.png";
+  final String account = "assets/icon/account.svg";
+  final String wallet = "assets/icon/wallet.svg";
+  final String hide = "assets/icon/hide.svg";
+  final String close = "assets/icon/close.svg";
+  final String backArrow = "assets/icon/back_arrow.svg";
+  final String bell = "assets/icon/bell.svg";
+  final String starBorder = "assets/icon/bold_star.svg";
+  final String connectWallet = "assets/icon/connect_wallet.svg";
+  final String copy = "assets/icon/copy.svg";
+  final String discord = "assets/icon/discord.svg";
+  final String dot = "assets/icon/dot.svg";
+  final String edit = "assets/icon/edit.svg";
+  final String etherscanPng = "assets/icon/etherscan.png";
+  final String external = "assets/icon/external.svg";
+  final String facebook = "assets/icon/facebook.svg";
+  final String fire = "assets/icon/fire.svg";
+  final String forwardArrow = "assets/icon/forward_arrow.svg";
+  final String gallery = "assets/icon/gallery.svg";
+  final String heart = "assets/icon/heart.svg";
+  final String instagram = "assets/icon/instagram.svg";
+  final String invoice = "assets/icon/invoice.svg";
+  final String link = "assets/icon/link.svg";
+  final String mic = "assets/icon/mic.svg";
+  final String more = "assets/icon/more.svg";
+  final String pieChart = "assets/icon/pie_chart.svg";
+  final String search = "assets/icon/search.svg";
+  final String star = "assets/icon/star.svg";
+  final String tiktok = "assets/icon/tiktok.svg";
+  final String twitter = "assets/icon/twitter.svg";
+  final String upload = "assets/icon/upload.svg";
+  final String youtube = "assets/icon/youtube.svg";
 }

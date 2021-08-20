@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
@@ -16,9 +17,9 @@ class SearchResultScreen extends StatefulWidget {
 }
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
-  double _currentSliderValue = 0.1;
   String? _chosenValue;
-
+  double _lowerValue = 0.01;
+  double _upperValue = 100;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,26 +69,38 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     ),
                     Sizer.vertical24(),
                     Text("Price range", style: textStyles.kTextTitle),
-                    // Sizer(),
-                    // FluidSlider(
-                    //   value: _currentSliderValue,
-                    //   end: Text("100 ETH"),
-                    //   start: Text("0.1 ETH"),
-                    //   onChanged: (double newValue) {
-                    //     setState(() {
-                    //       _currentSliderValue = newValue;
-                    //     });
-                    //   },
-                    //   showDecimalValue: true,
-                    //   sliderColor: colors.kColorBtnPurple.withOpacity(0.5),
-                    //   thumbColor: colors.kColorBtnBlue,
-                    //   labelsTextStyle: textStyles.kTextRegular,
-                    //   thumbDiameter: 50,
-                    //   valueTextStyle:
-                    //       textStyles.kTextSubtitle.copyWith(color: Colors.white),
-                    //   min: 0.1,
-                    //   max: 100.0,
-                    // ),
+                    Container(
+                      padding: EdgeInsets.all(sizes.regularPadding),
+                      child: Column(
+                        children: [
+                          FlutterSlider(
+                            trackBar: FlutterSliderTrackBar(
+                                activeTrackBar: BoxDecoration(
+                                    gradient: LinearGradient(colors: [
+                              colors.kColorBtnBlue,
+                              colors.kColorBtnPurple
+                            ]))),
+                            step: FlutterSliderStep(
+                                isPercentRange: true, step: 0.01),
+                            tooltip: FlutterSliderTooltip(
+                              textStyle: textStyles.kTextTitle,
+                              rightSuffix:
+                                  Text("  ETH", style: textStyles.kTextTitle),
+                            ),
+                            values: [0.1],
+                            max: 100,
+                            min: 0.01,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("0.01 ETH", style: textStyles.kTextSubtitle),
+                              Text("100 ETH", style: textStyles.kTextSubtitle),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                     Sizer.vertical24(),
                     Text("Chains", style: textStyles.kTextTitle),
                     Sizer(),

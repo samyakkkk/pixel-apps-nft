@@ -22,6 +22,9 @@ class Assets {
   final String instagram = "assets/icon/instagram.svg";
   final String invoice = "assets/icon/invoice.svg";
   final String link = "assets/icon/link.svg";
+  final String call = "assets/icon/call.svg";
+  final String mail = "assets/icon/mail.svg";
+  final String card = "assets/icon/card.svg";
   final String mic = "assets/icon/mic.svg";
   final String more = "assets/icon/more.svg";
   final String pieChart = "assets/icon/pie_chart.svg";

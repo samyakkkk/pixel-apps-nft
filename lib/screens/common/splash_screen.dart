@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/creator/tab_controller/tab_controller.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
       Future.delayed(
           Duration(seconds: 1),
           () =>
-              Navigator.pushReplacementNamed(context, UserTabBarController.id));
+              // Navigator.pushReplacementNamed(context, UserTabBarController.id));
+              Navigator.pushReplacementNamed(
+                  context, CreatorTabBarController.id));
     });
   }
 

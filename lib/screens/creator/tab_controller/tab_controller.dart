@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pixel_apps_ntf/screens/common/widgets/drawer_view.dart';
-import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
+import 'package:pixel_apps_ntf/screens/creator/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/user/search/search_popup.dart';
 
-class UserTabBarController extends StatefulWidget {
-  static const String id = "/userTabBarController";
-  const UserTabBarController({Key? key}) : super(key: key);
+import '../../common/widgets/drawer_view.dart';
+
+class CreatorTabBarController extends StatefulWidget {
+  static const String id = "/creatorTabBarController";
+  const CreatorTabBarController({Key? key}) : super(key: key);
 
   @override
   _TabBarControllerState createState() => _TabBarControllerState();
 }
 
-class _TabBarControllerState extends State<UserTabBarController>
+class _TabBarControllerState extends State<CreatorTabBarController>
     with SingleTickerProviderStateMixin {
   late TabController controller;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 3, vsync: this);
+    controller = TabController(length: 2, vsync: this);
     controller.addListener(() {
       setState(() {});
     });
@@ -47,15 +48,13 @@ class _TabBarControllerState extends State<UserTabBarController>
           ],
         ),
         actions: [
-          Visibility(
-              visible: controller.index != 0,
-              child: IconButton(
-                icon: SvgPicture.asset(assets.search, width: sizes.pagePadding),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => SearchPopupScreen()));
-                },
-              )),
+          IconButton(
+            icon: SvgPicture.asset(assets.search, width: sizes.pagePadding),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => SearchPopupScreen()));
+            },
+          ),
           IconButton(
             icon: Icon(Icons.menu, size: sizes.pagePadding),
             onPressed: () => _key.currentState!.openDrawer(),
@@ -69,9 +68,8 @@ class _TabBarControllerState extends State<UserTabBarController>
           TabBarView(
             controller: controller,
             children: [
-              UserHomeScreen(),
-              UserDiscoverScreen(),
-              UserProfileScreen(me: true),
+              CreatorProfile(),
+              CreatorProfile(),
             ],
           ),
           Align(
@@ -109,30 +107,19 @@ class _TabBarControllerState extends State<UserTabBarController>
                               iconSize: 24,
                               padding: EdgeInsets.symmetric(
                                   horizontal: 18, vertical: 8),
-                              icon: Icons.home,
-                              text: "Home"),
-                          GButton(
-                              gap: 10,
-                              iconActiveColor: Colors.purple,
-                              iconColor: Colors.black,
-                              textColor: Colors.purple,
-                              backgroundColor: Colors.purple.withOpacity(.2),
-                              iconSize: 24,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 18, vertical: 8),
-                              icon: Icons.explore,
-                              text: "Discover"),
-                          GButton(
-                              gap: 10,
-                              iconActiveColor: Colors.purple,
-                              iconColor: Colors.black,
-                              textColor: Colors.purple,
-                              backgroundColor: Colors.purple.withOpacity(.2),
-                              iconSize: 24,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 18, vertical: 8),
                               icon: Icons.person,
                               text: "Profile"),
+                          GButton(
+                              gap: 10,
+                              iconActiveColor: Colors.purple,
+                              iconColor: Colors.black,
+                              textColor: Colors.purple,
+                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconSize: 24,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 8),
+                              icon: Icons.upload,
+                              text: "Upload"),
                         ],
                         selectedIndex: controller.index,
                         onTabChange: (index) {

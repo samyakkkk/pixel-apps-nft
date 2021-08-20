@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/screens/creator/profile/profile.dart';
+import 'package:pixel_apps_ntf/screens/creator/upload/upload.dart';
 import 'package:pixel_apps_ntf/screens/user/discover/discover.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
@@ -69,7 +70,7 @@ class _TabBarControllerState extends State<CreatorTabBarController>
             controller: controller,
             children: [
               CreatorProfile(),
-              CreatorProfile(),
+              UploadArtWorkCreator(),
             ],
           ),
           Align(

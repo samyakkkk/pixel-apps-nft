@@ -4,6 +4,7 @@ import 'package:pixel_apps_ntf/screens/common/initial_screen.dart';
 import 'package:pixel_apps_ntf/screens/common/splash_screen.dart';
 import 'package:pixel_apps_ntf/screens/creator/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/creator/tab_controller/tab_controller.dart';
+import 'package:pixel_apps_ntf/screens/creator/wallet/wallet.dart';
 import 'package:pixel_apps_ntf/screens/user/auction/auction.dart';
 import 'package:pixel_apps_ntf/screens/user/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
@@ -27,6 +28,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => CreatorTabBarController());
       case CreatorProfile.id:
         return MaterialPageRoute(builder: (_) => CreatorProfile());
+      case CreatorWallet.id:
+        return MaterialPageRoute(builder: (_) => CreatorWallet());
       // Common
       case SplashScreen.id:
         return MaterialPageRoute(builder: (_) => SplashScreen());

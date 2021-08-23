@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
+import 'package:pixel_apps_ntf/screens/creator/wallet/wallet.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 class ConnectWalletDialog extends StatelessWidget {
@@ -52,7 +53,10 @@ class ConnectWalletDialog extends StatelessWidget {
           ),
           Sizer.vertical24(),
           LongSolidButton(
-              onPress: () {},
+              onPress: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, CreatorWallet.id);
+              },
               text: "Connect wallet",
               colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
           Sizer(),

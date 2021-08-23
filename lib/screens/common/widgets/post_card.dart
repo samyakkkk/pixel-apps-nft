@@ -10,9 +10,11 @@ class PostCard extends StatelessWidget {
   final String imageUrl;
   final String userProfileUrl;
   final Function onPress;
+  final bool shadow;
 
   PostCard(
       {Key? key,
+      this.shadow = true,
       required this.onPress,
       required this.userProfileUrl,
       required this.imageUrl,
@@ -28,14 +30,16 @@ class PostCard extends StatelessWidget {
         height: 525,
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 8,
-              offset: Offset(8, 5),
-              color: Colors.grey[400]!,
-              spreadRadius: 0.2,
-            )
-          ],
+          boxShadow: shadow
+              ? [
+                  BoxShadow(
+                    blurRadius: 8,
+                    offset: Offset(8, 5),
+                    color: Colors.grey[400]!,
+                    spreadRadius: 0.2,
+                  )
+                ]
+              : [],
           borderRadius: BorderRadius.circular(32),
         ),
         padding: EdgeInsets.all(10),

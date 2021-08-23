@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
@@ -241,7 +242,44 @@ class UploadArtWorkCreator extends StatelessWidget {
             ),
             Sizer.vertical20(),
             LongOutlinedButton(
-                onPress: () {},
+                onPress: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => Dialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24)),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: sizes.mediumPadding),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Preview",
+                                    style: textStyles.kTextTitlePrimary),
+                                IconButton(
+                                    padding: EdgeInsets.all(0),
+                                    icon: SvgPicture.asset(assets.close),
+                                    onPressed: () => Navigator.pop(context)),
+                              ],
+                            ),
+                          ),
+                          PostCard(
+                              shadow: false,
+                              onPress: () {},
+                              userProfileUrl:
+                                  "https://source.unsplash.com/random",
+                              imageUrl: "https://source.unsplash.com/random",
+                              title: "Silent Wave",
+                              userName: "Pawel Czer",
+                              userType: "Creator"),
+                        ],
+                      ),
+                    ),
+                  );
+                },
                 text: "Preview",
                 colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
             Sizer.half(),

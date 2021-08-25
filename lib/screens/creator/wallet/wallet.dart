@@ -1,26 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/creator/wallet/views/confirm_wallet.dart';
 import 'package:pixel_apps_ntf/screens/creator/wallet/wallet_view_model.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
-class CreatorWallet extends StatelessWidget {
+class CreatorWallet extends ConsumerWidget {
   static const String id = "/creatorWallet";
   const CreatorWallet({Key? key}) : super(key: key);
 
-  Widget? _view(WalletView v) {
+  Widget _view(WalletView v) {
     switch (v) {
       case WalletView.confirm:
-        break;
+        return ConfirmWalletView();
       case WalletView.scan:
-        break;
+        return Container();
       case WalletView.select:
-        break;
+        return Container();
       default:
+        return Container();
+    }
+  }
+
+  String enumToString(WalletView v) {
+    switch (v) {
+      case WalletView.confirm:
+        return "Confirm";
+      case WalletView.scan:
+        return "Scan";
+      case WalletView.select:
+        return "Select";
+      default:
+        return "";
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final viewModel = watch(walletViewProvider);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -33,10 +50,138 @@ class CreatorWallet extends StatelessWidget {
               Text("Easy to sell your Digital Art with 3 step",
                   style: textStyles.kTextSubtitle),
               Sizer(),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: viewModel.viewList
+                    .map((e) => Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            WalletStatus(
+                              completed: viewModel.viewList.indexOf(e) <
+                                  viewModel.currentWalletViewIndex,
+                              selected: viewModel.viewList.indexOf(e) ==
+                                  viewModel.currentWalletViewIndex,
+                              stepNumber:
+                                  '${viewModel.viewList.indexOf(e) + 1}',
+                              title: enumToString(e),
+                            ),
+                            Visibility(
+                              visible: viewModel.viewList.indexOf(e) !=
+                                  viewModel.viewList.length - 1,
+                              child: Container(
+                                width: 50,
+                                child: Center(
+                                  child: Divider(
+                                    thickness: 1,
+                                    height: 1,
+                                    endIndent: 10,
+                                    indent: 10,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ))
+                    .toList(),
+                // WalletStatus(
+                //   completed: true,
+                //   selected: false,
+                //   stepNumber: "1",
+                //   title: "Select",
+                // ),
+                // Expanded(
+                //   child: Divider(
+                //     thickness: 1,
+                //     height: 1,
+                //     endIndent: 10,
+                //     indent: 10,
+                //   ),
+                // ),
+                // WalletStatus(
+                //   completed: false,
+                //   selected: true,
+                //   stepNumber: "2",
+                //   title: "Scan",
+                // ),
+                // Expanded(
+                //   child: Divider(
+                //     thickness: 1,
+                //     height: 1,
+                //     endIndent: 10,
+                //     indent: 10,
+                //   ),
+                // ),
+                // WalletStatus(
+                //   completed: false,
+                //   selected: false,
+                //   stepNumber: "3",
+                //   title: "Confirm",
+                // ),
+                // ],
+              ),
+              Sizer(),
+              _view(viewModel.getView()),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class WalletStatus extends StatelessWidget {
+  final String title;
+  final String stepNumber;
+  final bool selected;
+  final bool completed;
+
+  const WalletStatus({
+    Key? key,
+    required this.title,
+    required this.stepNumber,
+    required this.selected,
+    required this.completed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            gradient: selected || completed
+                ? LinearGradient(
+                    colors: [
+                      colors.kColorBtnBlue,
+                      colors.kColorBtnPurple,
+                    ],
+                  )
+                : LinearGradient(
+                    colors: [
+                      colors.kColorFontPlaceholder,
+                      Colors.grey[400]!,
+                    ],
+                  ),
+          ),
+          child: Center(
+            child: completed
+                ? Icon(Icons.check_outlined, color: Colors.white)
+                : Text(stepNumber,
+                    style:
+                        textStyles.kTextBtnText.copyWith(color: Colors.white)),
+          ),
+        ),
+        Sizer.half(),
+        Text(title,
+            style: textStyles.kTextRegular.copyWith(
+                color: selected || completed
+                    ? colors.kColorFontPrimary
+                    : colors.kColorFontPlaceholder)),
+      ],
     );
   }
 }

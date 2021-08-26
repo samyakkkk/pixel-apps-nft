@@ -5,6 +5,7 @@ import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart'
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
+import 'package:pixel_apps_ntf/screens/creator/mint/mint.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 class UploadArtWorkCreator extends StatelessWidget {
@@ -284,7 +285,7 @@ class UploadArtWorkCreator extends StatelessWidget {
                 colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
             Sizer.half(),
             LongSolidButton(
-                onPress: () {},
+                onPress: () => Navigator.pushNamed(context, MintScreen.id),
                 text: "Upload",
                 colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
             Sizer.vertical64(),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/screens/common/initial_screen.dart';
 import 'package:pixel_apps_ntf/screens/common/splash_screen.dart';
+import 'package:pixel_apps_ntf/screens/creator/mint/mint.dart';
 import 'package:pixel_apps_ntf/screens/creator/profile/profile.dart';
 import 'package:pixel_apps_ntf/screens/creator/tab_controller/tab_controller.dart';
 import 'package:pixel_apps_ntf/screens/creator/wallet/wallet.dart';
@@ -30,6 +31,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => CreatorProfile());
       case CreatorWallet.id:
         return MaterialPageRoute(builder: (_) => CreatorWallet());
+      case MintScreen.id:
+        return MaterialPageRoute(builder: (_) => MintScreen());
       // Common
       case SplashScreen.id:
         return MaterialPageRoute(builder: (_) => SplashScreen());

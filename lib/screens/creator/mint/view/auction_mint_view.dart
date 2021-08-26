@@ -113,11 +113,6 @@ class _AuctionMintViewState extends State<AuctionMintView> {
             },
           ),
         ),
-        Sizer.vertical24(),
-        LongSolidButton(
-            onPress: () {},
-            text: "Mint NFT",
-            colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
       ],
     );
   }

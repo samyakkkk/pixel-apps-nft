@@ -52,11 +52,6 @@ class FixedMintView extends StatelessWidget {
           "Content will be unlocked after \nsuccessful transaction",
           style: textStyles.kTextSubtitle,
         ),
-        Sizer.vertical24(),
-        LongSolidButton(
-            onPress: () {},
-            text: "Mint NFT",
-            colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple]),
       ],
     );
   }

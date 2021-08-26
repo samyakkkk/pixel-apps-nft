@@ -8,6 +8,7 @@ class Assets {
   final String bell = "assets/icon/bell.svg";
   final String starBorder = "assets/icon/bold_star.svg";
   final String connectWalletPng = "assets/image/connect_wallet.png";
+  final String securityPng = "assets/image/security.png";
   final String copy = "assets/icon/copy.svg";
   final String discord = "assets/icon/discord.svg";
   final String dot = "assets/icon/dot.svg";

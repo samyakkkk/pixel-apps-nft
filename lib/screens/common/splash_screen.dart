@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/common/initial_screen.dart';
 import 'package:pixel_apps_ntf/screens/creator/tab_controller/tab_controller.dart';
 import 'package:pixel_apps_ntf/screens/user/tab_controller/tab_controller.dart';
 
@@ -16,13 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       initializeResources(context: context);
-      // TODO change logic here later
-      Future.delayed(
-          Duration(seconds: 1),
-          () =>
-              // Navigator.pushReplacementNamed(context, UserTabBarController.id));
-              Navigator.pushReplacementNamed(
-                  context, CreatorTabBarController.id));
+      Future.delayed(Duration(seconds: 2),
+          () => Navigator.pushReplacementNamed(context, InitialScreen.id));
     });
   }
 

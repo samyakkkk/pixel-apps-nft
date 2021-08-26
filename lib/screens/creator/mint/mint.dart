@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
+import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
 import 'package:pixel_apps_ntf/screens/creator/mint/mint_view_model.dart';
+import 'package:pixel_apps_ntf/screens/creator/process/process.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
 import 'view/auction_mint_view.dart';
@@ -66,7 +68,14 @@ class MintScreen extends ConsumerWidget {
                     ),
                   ),
                   Sizer.vertical20(),
-                  _view(viewModel.getView())
+                  _view(viewModel.getView()),
+                  Sizer.vertical24(),
+                  LongSolidButton(
+                    onPress: () =>
+                        Navigator.pushNamed(context, ProcessScreen.id),
+                    text: "Mint NFT",
+                    colorList: [colors.kColorBtnBlue, colors.kColorBtnPurple],
+                  ),
                 ],
               ),
             ),

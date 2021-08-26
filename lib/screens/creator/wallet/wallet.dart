@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/creator/wallet/views/confirm_wallet.dart';
+import 'package:pixel_apps_ntf/screens/creator/wallet/views/scan_wallet.dart';
+import 'package:pixel_apps_ntf/screens/creator/wallet/views/select_wallet.dart';
 import 'package:pixel_apps_ntf/screens/creator/wallet/wallet_view_model.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
 
@@ -14,9 +16,9 @@ class CreatorWallet extends ConsumerWidget {
       case WalletView.confirm:
         return ConfirmWalletView();
       case WalletView.scan:
-        return Container();
+        return ScanWalletView();
       case WalletView.select:
-        return Container();
+        return SelectWalletView();
       default:
         return Container();
     }
@@ -84,43 +86,8 @@ class CreatorWallet extends ConsumerWidget {
                           ],
                         ))
                     .toList(),
-                // WalletStatus(
-                //   completed: true,
-                //   selected: false,
-                //   stepNumber: "1",
-                //   title: "Select",
-                // ),
-                // Expanded(
-                //   child: Divider(
-                //     thickness: 1,
-                //     height: 1,
-                //     endIndent: 10,
-                //     indent: 10,
-                //   ),
-                // ),
-                // WalletStatus(
-                //   completed: false,
-                //   selected: true,
-                //   stepNumber: "2",
-                //   title: "Scan",
-                // ),
-                // Expanded(
-                //   child: Divider(
-                //     thickness: 1,
-                //     height: 1,
-                //     endIndent: 10,
-                //     indent: 10,
-                //   ),
-                // ),
-                // WalletStatus(
-                //   completed: false,
-                //   selected: false,
-                //   stepNumber: "3",
-                //   title: "Confirm",
-                // ),
-                // ],
               ),
-              Sizer(),
+              Sizer.vertical24(),
               _view(viewModel.getView()),
             ],
           ),

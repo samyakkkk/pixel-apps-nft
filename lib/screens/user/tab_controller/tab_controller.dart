@@ -84,7 +84,7 @@ class _TabBarControllerState extends State<UserTabBarController>
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             child: AccountDialog(),
-                          ));
+                          )).then((value) => setState(() {}));
                 },
               )),
           Visibility(

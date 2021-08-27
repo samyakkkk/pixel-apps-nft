@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pixel_apps_ntf/providers/common/theme_provider.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
 import 'package:pixel_apps_ntf/utils/sizer.dart';
@@ -96,12 +98,21 @@ class AccountDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Dark mode", style: textStyles.kTextBtnText),
-                CupertinoSwitch(
-                  value: false,
-                  onChanged: (v) {
-                    // initializeResources(context: context, dark: v);
+                Consumer(
+                  builder: (context, watch, _) {
+                    final dark = watch(themeProvider).getIsDarkMode;
+                    return CupertinoSwitch(
+                      value: dark,
+                      onChanged: (v) {
+                        context.read(themeProvider).switchTheme();
+                        initializeResources(
+                            context: context,
+                            dark: context.read(themeProvider).getIsDarkMode);
+                        Navigator.pop(context);
+                      },
+                    );
                   },
-                )
+                ),
               ],
             ),
           )

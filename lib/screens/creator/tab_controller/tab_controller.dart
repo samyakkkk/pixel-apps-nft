@@ -40,7 +40,7 @@ class _TabBarControllerState extends State<CreatorTabBarController>
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        actionsIconTheme: IconThemeData(color: Colors.black),
+        actionsIconTheme: IconThemeData(color: colors.kColorFontPrimary),
         automaticallyImplyLeading: false,
         title: Row(
           children: [
@@ -80,12 +80,12 @@ class _TabBarControllerState extends State<CreatorTabBarController>
               child: Container(
                 padding: EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: colors.kColorBackgroud,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 8,
                       offset: Offset(8, 5),
-                      color: Colors.grey[400]!,
+                      color: colors.kColorShadow,
                       spreadRadius: 0.2,
                     )
                   ],
@@ -94,17 +94,18 @@ class _TabBarControllerState extends State<CreatorTabBarController>
                 child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: colors.kColorBackgroud,
                       borderRadius: BorderRadius.circular(34),
                     ),
                     child: GNav(
                         tabs: [
                           GButton(
                               gap: 10,
-                              iconActiveColor: Colors.purple,
-                              iconColor: Colors.black,
-                              textColor: Colors.purple,
-                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconActiveColor: colors.kColorBtnPurple,
+                              iconColor: colors.kColorFontPrimary,
+                              textColor: colors.kColorBtnPurple,
+                              backgroundColor:
+                                  colors.kColorBtnPurple.withOpacity(.2),
                               iconSize: 24,
                               padding: EdgeInsets.symmetric(
                                   horizontal: 18, vertical: 8),
@@ -112,10 +113,11 @@ class _TabBarControllerState extends State<CreatorTabBarController>
                               text: "Profile"),
                           GButton(
                               gap: 10,
-                              iconActiveColor: Colors.purple,
-                              iconColor: Colors.black,
-                              textColor: Colors.purple,
-                              backgroundColor: Colors.purple.withOpacity(.2),
+                              iconActiveColor: colors.kColorBtnPurple,
+                              iconColor: colors.kColorFontPrimary,
+                              textColor: colors.kColorBtnPurple,
+                              backgroundColor:
+                                  colors.kColorBtnPurple.withOpacity(.2),
                               iconSize: 24,
                               padding: EdgeInsets.symmetric(
                                   horizontal: 18, vertical: 8),

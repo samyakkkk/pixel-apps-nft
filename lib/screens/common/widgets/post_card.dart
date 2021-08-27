@@ -29,13 +29,13 @@ class PostCard extends StatelessWidget {
       child: Container(
         height: 525,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colors.kColorBackgroudSecondary,
           boxShadow: shadow
               ? [
                   BoxShadow(
                     blurRadius: 8,
                     offset: Offset(8, 5),
-                    color: Colors.grey[400]!,
+                    color: colors.kColorShadow,
                     spreadRadius: 0.2,
                   )
                 ]

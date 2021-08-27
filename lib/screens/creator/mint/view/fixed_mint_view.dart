@@ -25,10 +25,16 @@ class FixedMintView extends StatelessWidget {
             Expanded(
               child: TextFormField(
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: colors.kColorFontSecondary)),
                   hintText: "0.00",
-                  suffixIcon: Icon(Icons.cancel_rounded),
+                  hintStyle: textStyles.kTextRegular,
+                  fillColor: colors.kColorBackgroudSecondary,
+                  suffixIcon: Icon(Icons.cancel_rounded,
+                      color: colors.kColorFontPlaceholder),
                 ),
+                style: textStyles.kTextRegular,
                 keyboardType: TextInputType.number,
               ),
             ),

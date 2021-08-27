@@ -14,6 +14,7 @@ class InitialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: Padding(
         padding: EdgeInsets.all(sizes.pagePadding),
         child: Column(

@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pixel_apps_ntf/res/res.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_outlined_button.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/long_solid_button.dart';
-import 'package:pixel_apps_ntf/screens/common/widgets/notification.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/post_card.dart';
 import 'package:pixel_apps_ntf/screens/common/widgets/shadow_container.dart';
 import 'package:pixel_apps_ntf/screens/user/home/home.dart';
@@ -37,23 +36,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO remove later
-      floatingActionButton: widget.me
-          ? Padding(
-              padding: const EdgeInsets.all(100.0),
-              child: FloatingActionButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (_) => Dialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: NotificationDialog(),
-                            ));
-                  },
-                  child: Icon(Icons.ac_unit)),
-            )
-          : null,
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: Stack(
           children: [
@@ -90,25 +73,27 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                   children: [
                                     Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: colors.kColorBackgroud,
                                         borderRadius: BorderRadius.circular(52),
                                       ),
                                       child: IconButton(
                                           onPressed: () {},
                                           icon: SvgPicture.asset(assets.more,
-                                              color: colors.kColorFontPrimary,
+                                              color: colors.kColorFontSecondary,
                                               height: sizes.semiLargePadding)),
                                     ),
                                     Sizer.horizontal(),
                                     Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: colors.kColorBackgroud,
                                         borderRadius: BorderRadius.circular(52),
                                       ),
                                       child: IconButton(
                                           onPressed: () {},
                                           icon: SvgPicture.asset(assets.upload,
-                                              height: sizes.semiLargePadding)),
+                                              height: sizes.semiLargePadding,
+                                              color:
+                                                  colors.kColorFontSecondary)),
                                     ),
                                   ],
                                 ),
@@ -129,12 +114,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text("52fs5ge5g45sov45a"),
+                                        Text("52fs5ge5g45sov45a",
+                                            style: textStyles.kTextRegular),
                                         IconButton(
                                             onPressed: () {},
                                             padding: EdgeInsets.all(0),
                                             icon: SvgPicture.asset(assets.copy,
-                                                height: sizes.mediumPadding))
+                                                height: sizes.mediumPadding,
+                                                color: colors
+                                                    .kColorFontSecondary)),
                                       ],
                                     ),
                                     Sizer(),
@@ -191,7 +179,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                                           sizes.regularPadding),
                                                   child: widget.me
                                                       ? SvgPicture.asset(
-                                                          assets.edit)
+                                                          assets.edit,
+                                                          color: colors
+                                                              .kColorFontSecondary)
                                                       : Text("Follow",
                                                           style: textStyles
                                                               .kTextBtnText)),
@@ -228,7 +218,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 Sizer.half(),
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[200],
+                                    color: colors.kColorBackgroudSecondary,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: TextFormField(
@@ -236,6 +226,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                       contentPadding: EdgeInsets.symmetric(
                                           horizontal: sizes.smallPadding),
                                       hintText: "Name",
+                                      hintStyle: textStyles.kTextRegular,
                                       border: InputBorder.none,
                                     ),
                                   ),
@@ -243,7 +234,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 Sizer.half(),
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[200],
+                                    color: colors.kColorBackgroudSecondary,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: TextFormField(
@@ -251,6 +242,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                       contentPadding: EdgeInsets.symmetric(
                                           horizontal: sizes.smallPadding),
                                       hintText: "User Name",
+                                      hintStyle: textStyles.kTextRegular,
                                       border: InputBorder.none,
                                     ),
                                   ),
@@ -261,7 +253,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 Sizer.half(),
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[200],
+                                    color: colors.kColorBackgroudSecondary,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: TextFormField(
@@ -269,6 +261,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                       contentPadding: EdgeInsets.symmetric(
                                           horizontal: sizes.smallPadding),
                                       hintText: "Email",
+                                      hintStyle: textStyles.kTextRegular,
                                       border: InputBorder.none,
                                     ),
                                   ),
@@ -288,12 +281,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 Sizer.half(),
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[200],
+                                    color: colors.kColorBackgroudSecondary,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: TextFormField(
                                     maxLines: 10,
                                     decoration: InputDecoration(
+                                      hintStyle: textStyles.kTextRegular,
                                       contentPadding: EdgeInsets.symmetric(
                                           vertical: sizes.smallPadding,
                                           horizontal: sizes.smallPadding),
@@ -310,7 +304,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                   width: double.infinity,
                                   height: 200,
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[200],
+                                    color: colors.kColorBackgroudSecondary,
                                     borderRadius: BorderRadius.circular(32),
                                   ),
                                   child: Column(
@@ -318,7 +312,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.image),
+                                      Icon(
+                                        Icons.image,
+                                        color: colors.kColorFontSecondary,
+                                      ),
                                       Text("Browse a file",
                                           style: textStyles.kTextTitle),
                                       Text(
@@ -339,183 +336,56 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 LongOutlinedButton(
                                     onPress: () {},
                                     text: "Verify via Twitter",
-                                    colorList: [Colors.black, Colors.black]),
+                                    colorList: [
+                                      colors.kColorFontPrimary,
+                                      colors.kColorFontPrimary
+                                    ]),
                                 Sizer.half(),
                                 LongOutlinedButton(
                                     onPress: () {},
                                     text: "Verify via Instagram",
-                                    colorList: [Colors.black, Colors.black]),
+                                    colorList: [
+                                      colors.kColorFontPrimary,
+                                      colors.kColorFontPrimary
+                                    ]),
                                 Sizer.vertical24(),
                                 Text("Add links to your social media profiles.",
                                     style: textStyles.kTextTitle),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(assets.link,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Website",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "Website",
+                                  leading: SvgPicture.asset(assets.link,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(assets.discord,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Discord",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "Discord",
+                                  leading: SvgPicture.asset(assets.discord,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(
-                                            assets.instagram,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Instagram",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "Instagram",
+                                  leading: SvgPicture.asset(assets.instagram,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(assets.youtube,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Youtube channel",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "Youtube Channel",
+                                  leading: SvgPicture.asset(assets.youtube,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(assets.facebook,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Facebook",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "Facebook",
+                                  leading: SvgPicture.asset(assets.facebook,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.half(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SvgPicture.asset(assets.tiktok,
-                                            color: colors.kColorBtnBlue),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        sizes.smallPadding),
-                                            hintText: "Tiktok",
-                                            border: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                LinkField(
+                                  hint: "TikTok",
+                                  leading: SvgPicture.asset(assets.tiktok,
+                                      color: colors.kColorBtnBlue),
                                 ),
                                 Sizer.vertical20(),
                                 LongSolidButton(
@@ -621,7 +491,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                                       MainAxisSize.min,
                                                   children: [
                                                     SvgPicture.asset(e.asset,
-                                                        color: Colors.black),
+                                                        color: colors
+                                                            .kColorFontPrimary),
                                                     Sizer.halfHorizontal(),
                                                     Text(
                                                       e.value,
@@ -649,7 +520,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                               style: textStyles.kTextMediumText
                                                   .copyWith(
                                                       color: colors
-                                                          .kColorFontPlaceholder)),
+                                                          .kColorBackgroudSecondary)),
                                         ],
                                       ),
                                 Sizer.vertical24(),
@@ -718,12 +589,51 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       borderRadius: BorderRadius.circular(52),
                       child: IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back))),
+                          icon: Icon(Icons.arrow_back,
+                              color: colors.kColorBackgroudSecondary))),
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LinkField extends StatelessWidget {
+  final Widget leading;
+  final String hint;
+
+  const LinkField({Key? key, required this.leading, required this.hint})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: colors.kColorBackgroudSecondary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: leading,
+          ),
+          Expanded(
+            child: TextFormField(
+              decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: sizes.smallPadding),
+                hintText: hint,
+                hintStyle: textStyles.kTextRegular,
+                border: InputBorder.none,
+              ),
+              style: textStyles.kTextRegular,
+            ),
+          ),
+        ],
       ),
     );
   }

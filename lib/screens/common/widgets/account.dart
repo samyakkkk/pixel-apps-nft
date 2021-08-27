@@ -98,7 +98,9 @@ class AccountDialog extends StatelessWidget {
                 Text("Dark mode", style: textStyles.kTextBtnText),
                 CupertinoSwitch(
                   value: false,
-                  onChanged: (_) {},
+                  onChanged: (v) {
+                    // initializeResources(context: context, dark: v);
+                  },
                 )
               ],
             ),

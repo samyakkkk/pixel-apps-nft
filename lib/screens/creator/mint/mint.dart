@@ -29,6 +29,7 @@ class MintScreen extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final viewModel = watch(mintViewProvider);
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: Stack(
           children: [
@@ -37,34 +38,33 @@ class MintScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   Sizer.vertical64(),
-                  ShadowContainer(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Padding(
-                      padding: EdgeInsets.all(sizes.smallPadding),
-                      child: Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () => context
-                                .read(mintViewProvider)
-                                .updateMintView(0),
-                            child: TopTabBar(
-                                text: "Fixed price",
-                                selected: viewModel.currentMintViewIndex == 0),
-                          )),
-                          Sizer.horizontal(),
-                          Expanded(
-                              child: InkWell(
-                                  onTap: () => context
-                                      .read(mintViewProvider)
-                                      .updateMintView(1),
-                                  child: TopTabBar(
-                                      text: "Auction",
-                                      selected:
-                                          viewModel.currentMintViewIndex ==
-                                              1))),
-                        ],
-                      ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: colors.kColorBackgroudSecondary
+                    ),
+                    padding: EdgeInsets.all(sizes.smallPadding),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: InkWell(
+                          onTap: () =>
+                              context.read(mintViewProvider).updateMintView(0),
+                          child: TopTabBar(
+                              text: "Fixed price",
+                              selected: viewModel.currentMintViewIndex == 0),
+                        )),
+                        Sizer.horizontal(),
+                        Expanded(
+                            child: InkWell(
+                                onTap: () => context
+                                    .read(mintViewProvider)
+                                    .updateMintView(1),
+                                child: TopTabBar(
+                                    text: "Auction",
+                                    selected:
+                                        viewModel.currentMintViewIndex == 1))),
+                      ],
                     ),
                   ),
                   Sizer.vertical20(),
@@ -87,7 +87,8 @@ class MintScreen extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(52),
                     child: IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.arrow_back))),
+                        icon: Icon(Icons.arrow_back,
+                            color: colors.kColorFontSecondary))),
               ),
             ),
           ],
@@ -111,9 +112,10 @@ class TopTabBar extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         gradient: LinearGradient(
-            colors: selected
-                ? [colors.kColorBtnBlue, colors.kColorBtnPurple]
-                : [Colors.grey[200]!, Colors.grey[200]!]),
+          colors: selected
+              ? [colors.kColorBtnBlue, colors.kColorBtnPurple]
+              : [colors.kColorShadow, colors.kColorShadow],
+        ),
       ),
       child: Center(
         child: Text(text,

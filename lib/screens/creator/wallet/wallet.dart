@@ -41,6 +41,7 @@ class CreatorWallet extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final viewModel = watch(walletViewProvider);
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(sizes.mediumPadding),
@@ -130,7 +131,7 @@ class WalletStatus extends StatelessWidget {
                 : LinearGradient(
                     colors: [
                       colors.kColorFontPlaceholder,
-                      Colors.grey[400]!,
+                      colors.kColorShadow,
                     ],
                   ),
           ),
@@ -138,8 +139,8 @@ class WalletStatus extends StatelessWidget {
             child: completed
                 ? Icon(Icons.check_outlined, color: Colors.white)
                 : Text(stepNumber,
-                    style:
-                        textStyles.kTextBtnText.copyWith(color: Colors.white)),
+                    style: textStyles.kTextBtnText
+                        .copyWith(color: colors.kColorFontPrimary)),
           ),
         ),
         Sizer.half(),

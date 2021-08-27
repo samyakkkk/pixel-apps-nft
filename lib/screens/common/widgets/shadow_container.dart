@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_apps_ntf/res/res.dart';
 
 class ShadowContainer extends StatelessWidget {
   final Widget child;
@@ -14,12 +15,12 @@ class ShadowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.kColorBackgroudSecondary,
         boxShadow: [
           BoxShadow(
             blurRadius: 8,
             offset: Offset(-8, 4),
-            color: Colors.grey[200]!,
+            color: colors.kColorShadow,
             spreadRadius: 0.2,
           ),
         ],

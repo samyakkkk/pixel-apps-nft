@@ -23,6 +23,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: Stack(
           children: [
@@ -55,12 +56,13 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               selectedColor: colors.kColorBtnBlue,
                               selected: e == "All items" ? true : false,
                               showCheckmark: false,
-                              backgroundColor: Colors.grey[200],
+                              backgroundColor: colors.kColorFontPlaceholder,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle.copyWith(
-                                    color:
-                                        e == "All items" ? Colors.white : null),
+                                    color: e == "All items"
+                                        ? colors.kColorBackgroud
+                                        : null),
                               ),
                               onSelected: (_) {},
                             ),
@@ -116,12 +118,13 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               selectedColor: colors.kColorBtnBlue,
                               selected: e == "Ethereum" ? true : false,
                               showCheckmark: false,
-                              backgroundColor: Colors.grey[200],
+                              backgroundColor: colors.kColorFontPlaceholder,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle.copyWith(
-                                    color:
-                                        e == "Ethereum" ? Colors.white : null),
+                                    color: e == "Ethereum"
+                                        ? colors.kColorBackgroud
+                                        : null),
                               ),
                               onSelected: (_) {},
                             ),
@@ -142,7 +145,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                   vertical: sizes.tinyPadding),
                               selectedColor: colors.kColorBtnBlue,
                               showCheckmark: false,
-                              backgroundColor: Colors.grey[200],
+                              backgroundColor: colors.kColorFontPlaceholder,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle,
@@ -157,7 +160,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     Sizer(),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: colors.kColorFontPlaceholder,
                           borderRadius: BorderRadius.circular(8)),
                       padding: EdgeInsets.symmetric(
                           horizontal: sizes.regularPadding,
@@ -167,7 +170,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                         isDense: true,
                         isExpanded: true,
                         underline: SizedBox.shrink(),
-                        iconEnabledColor: Colors.black,
+                        iconEnabledColor: colors.kColorFontPrimary,
                         items: <String>[
                           "Verified Only",
                           "Unverified Only",
@@ -246,7 +249,8 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     borderRadius: BorderRadius.circular(52),
                     child: IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.arrow_back))),
+                        icon: Icon(Icons.arrow_back,
+                            color: colors.kColorFontSecondary))),
               ),
             ),
           ],

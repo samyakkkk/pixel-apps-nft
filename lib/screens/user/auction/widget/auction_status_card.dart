@@ -23,7 +23,7 @@ class SoldCard extends StatelessWidget {
               TextSpan(
                 text: "\$2,683.73",
                 style: textStyles.kTextMediumText
-                    .copyWith(color: colors.kColorFontPlaceholder),
+                    .copyWith(color: colors.kColorFontSecondary),
               ),
             ],
           ),
@@ -37,7 +37,7 @@ class SoldCard extends StatelessWidget {
             Chip(
               elevation: 5,
               shadowColor: colors.kColorBackgroudSecondary,
-              backgroundColor: Colors.white,
+              backgroundColor: colors.kColorBackgroud,
               avatar: CircleAvatar(
                 backgroundColor: Colors.pink,
               ),
@@ -72,7 +72,7 @@ class ReserveCard extends StatelessWidget {
               TextSpan(
                 text: "\$2,683.73",
                 style: textStyles.kTextMediumText
-                    .copyWith(color: colors.kColorFontPlaceholder),
+                    .copyWith(color: colors.kColorFontSecondary),
               ),
             ],
           ),
@@ -87,6 +87,7 @@ class ReserveCard extends StatelessWidget {
           onPress: () => showDialog(
             context: context,
             builder: (_) => Dialog(
+              backgroundColor: colors.kColorBackgroud,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
@@ -121,7 +122,7 @@ class CurrentCard extends StatelessWidget {
               TextSpan(
                 text: "\$2,683.73",
                 style: textStyles.kTextMediumText
-                    .copyWith(color: colors.kColorFontPlaceholder),
+                    .copyWith(color: colors.kColorFontSecondary),
               ),
             ],
           ),
@@ -164,6 +165,7 @@ class CurrentCard extends StatelessWidget {
           onPress: () => showDialog(
             context: context,
             builder: (_) => Dialog(
+              backgroundColor: colors.kColorBackgroud,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),

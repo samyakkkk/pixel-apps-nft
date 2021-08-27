@@ -26,14 +26,14 @@ class UploadArtWorkCreator extends StatelessWidget {
               width: double.infinity,
               height: 150,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: colors.kColorBackgroudSecondary,
                 borderRadius: BorderRadius.circular(32),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.image),
+                  Icon(Icons.image, color: colors.kColorFontSecondary),
                   Text("Browse a file", style: textStyles.kTextMediumText),
                   Sizer.half(),
                   Text("PNG, GIF, WEBP, MP4 or MP3, (Max 1Gb)",
@@ -60,30 +60,31 @@ class UploadArtWorkCreator extends StatelessWidget {
                   width: 60,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(color: colors.kColorFontPlaceholder),
                       borderRadius: BorderRadius.circular(16)),
                   child: SvgPicture.asset(assets.upload,
-                      height: sizes.regularPadding),
+                      height: sizes.regularPadding,
+                      color: colors.kColorFontSecondary),
                 ),
                 Container(
                   height: 60,
                   width: 60,
                   decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(color: colors.kColorFontPlaceholder),
                       borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   height: 60,
                   width: 60,
                   decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(color: colors.kColorFontPlaceholder),
                       borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   height: 60,
                   width: 60,
                   decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(color: colors.kColorFontPlaceholder),
                       borderRadius: BorderRadius.circular(16)),
                 ),
               ],
@@ -93,7 +94,7 @@ class UploadArtWorkCreator extends StatelessWidget {
             Sizer.half(),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: colors.kColorBackgroudSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: TextFormField(
@@ -101,14 +102,16 @@ class UploadArtWorkCreator extends StatelessWidget {
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: sizes.smallPadding),
                   hintText: "Item Name",
+                  hintStyle: textStyles.kTextRegular,
                   border: InputBorder.none,
                 ),
+                style: textStyles.kTextRegular,
               ),
             ),
             Sizer(),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: colors.kColorBackgroudSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: TextFormField(
@@ -116,14 +119,16 @@ class UploadArtWorkCreator extends StatelessWidget {
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: sizes.smallPadding),
                   hintText: "Tag",
+                  hintStyle: textStyles.kTextRegular,
                   border: InputBorder.none,
                 ),
+                style: textStyles.kTextRegular,
               ),
             ),
             Sizer(),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: colors.kColorBackgroudSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: TextFormField(
@@ -132,8 +137,10 @@ class UploadArtWorkCreator extends StatelessWidget {
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: sizes.smallPadding),
                   hintText: "Description",
+                  hintStyle: textStyles.kTextRegular,
                   border: InputBorder.none,
                 ),
+                style: textStyles.kTextRegular,
               ),
             ),
             Sizer.vertical24(),
@@ -194,7 +201,7 @@ class UploadArtWorkCreator extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CircleAvatar(
-                          backgroundColor: Colors.grey[300],
+                          backgroundColor: colors.kColorBackgroudSecondary,
                           child: Icon(Icons.add),
                         ),
                         Sizer.half(),
@@ -205,40 +212,6 @@ class UploadArtWorkCreator extends StatelessWidget {
                   )),
                 ),
                 Sizer.halfHorizontal(),
-                // Expanded(
-                //   child: ShadowContainer(
-                //       child: Padding(
-                //     padding: EdgeInsets.all(sizes.mediumPadding),
-                //     child: Row(
-                //       children: [
-                //         Expanded(
-                //           child: Container(
-                //               child: SizedBox.expand(),
-                //               decoration: BoxDecoration(
-                //                   borderRadius: BorderRadius.only(
-                //                       topLeft: Radius.circular(8),
-                //                       bottomLeft: Radius.circular(8)),
-                //                   image: DecorationImage(
-                //                       image: NetworkImage(
-                //                           "https://source.unsplash.com/random"),
-                //                       fit: BoxFit.cover))),
-                //         ),
-                //         Expanded(
-                //           child: Container(
-                //               child: SizedBox.expand(),
-                //               decoration: BoxDecoration(
-                //                   borderRadius: BorderRadius.only(
-                //                       topRight: Radius.circular(8),
-                //                       bottomRight: Radius.circular(8)),
-                //                   image: DecorationImage(
-                //                       image: NetworkImage(
-                //                           "https://source.unsplash.com/random"),
-                //                       fit: BoxFit.cover))),
-                //         ),
-                //       ],
-                //     ),
-                //   )),
-                // )
               ],
             ),
             Sizer.vertical20(),
@@ -247,6 +220,7 @@ class UploadArtWorkCreator extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (_) => Dialog(
+                      backgroundColor: colors.kColorBackgroudSecondary,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24)),
                       child: Column(
@@ -262,7 +236,8 @@ class UploadArtWorkCreator extends StatelessWidget {
                                     style: textStyles.kTextTitlePrimary),
                                 IconButton(
                                     padding: EdgeInsets.all(0),
-                                    icon: SvgPicture.asset(assets.close),
+                                    icon: SvgPicture.asset(assets.close,
+                                        color: colors.kColorFontSecondary),
                                     onPressed: () => Navigator.pop(context)),
                               ],
                             ),

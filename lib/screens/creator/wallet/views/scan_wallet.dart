@@ -13,22 +13,23 @@ class ScanWalletView extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => context.read(walletViewProvider).updateWalletView(2),
-      child: ShadowContainer(
-        child: Padding(
-          padding: EdgeInsets.all(sizes.pagePadding),
-          child: Center(
-            child: Column(
-              children: [
-                QrImage(
-                  data: 'Visit pixelsapp.io',
-                  version: QrVersions.auto,
-                  size: 320,
-                  gapless: false,
-                ),
-                Sizer(),
-                Text("Scan to connect wallet", style: textStyles.kTextRegular),
-              ],
-            ),
+      child: Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(sizes.pagePadding),
+        child: Center(
+          child: Column(
+            children: [
+              QrImage(
+                data: 'Visit pixelsapp.io',
+                version: QrVersions.auto,
+                size: 320,
+                gapless: false,
+              ),
+              Sizer(),
+              Text("Scan to connect wallet",
+                  style:
+                      textStyles.kTextRegular.copyWith(color: Colors.black)),
+            ],
           ),
         ),
       ),

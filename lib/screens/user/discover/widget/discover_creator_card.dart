@@ -75,7 +75,7 @@ class DiscoverCreatorCard extends StatelessWidget {
                           MaterialButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8)),
-                            color: Colors.white,
+                            color: colors.kColorBackgroud,
                             onPressed: () {},
                             elevation: 1,
                             child:
@@ -94,7 +94,7 @@ class DiscoverCreatorCard extends StatelessWidget {
                   (55 + sizes.mediumPadding),
               child: CircleAvatar(
                 radius: 55,
-                backgroundColor: Colors.white,
+                backgroundColor: colors.kColorBackgroud,
               ),
             ),
             Positioned(

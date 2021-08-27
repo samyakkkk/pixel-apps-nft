@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_apps_ntf/res/res.dart';
 
 class CustomIconButton extends StatelessWidget {
   final Widget child;
@@ -9,7 +10,7 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.kColorBackgroud,
         borderRadius: BorderRadius.circular(100),
       ),
       child: child,

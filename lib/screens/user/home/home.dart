@@ -186,7 +186,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             Divider(
               thickness: 1,
               height: 1,
-              color: Colors.grey[300],
+              color: colors.kColorFontPlaceholder,
             ),
             Sizer.vertical48(),
           ],
@@ -205,7 +205,7 @@ class BidingContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.kColorBackgroudSecondary,
         borderRadius: BorderRadius.circular(50),
       ),
       width: double.infinity,
@@ -244,7 +244,7 @@ class SoldContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.kColorBackgroudSecondary,
         borderRadius: BorderRadius.circular(50),
       ),
       width: double.infinity,

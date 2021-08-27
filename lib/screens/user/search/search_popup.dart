@@ -8,6 +8,7 @@ class SearchPopupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -29,6 +30,7 @@ class SearchPopupScreen extends StatelessWidget {
                           title: Expanded(
                             child: TextFormField(
                               autofocus: true,
+                              style: textStyles.kTextRegular,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   focusedBorder: InputBorder.none,
@@ -39,6 +41,7 @@ class SearchPopupScreen extends StatelessWidget {
                                   suffixIcon: InkWell(
                                       onTap: () => Navigator.pop(context),
                                       child: Icon(Icons.close)),
+                                  hintStyle: textStyles.kTextRegular,
                                   hintText:
                                       "Search items, collections, and accounts"),
                             ),

@@ -25,6 +25,7 @@ class _ProcessScreenState extends State<ProcessScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -112,7 +113,7 @@ class ReserveContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.kColorBackgroudSecondary,
         borderRadius: BorderRadius.circular(50),
       ),
       width: double.infinity,

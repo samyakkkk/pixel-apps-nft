@@ -22,6 +22,7 @@ class _AuctionState extends State<AuctionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.kColorBackgroud,
       body: SafeArea(
         child: Stack(
           children: [
@@ -60,7 +61,7 @@ class _AuctionState extends State<AuctionScreen> {
                               child: IconButton(
                                   onPressed: () {},
                                   icon: SvgPicture.asset(assets.heart,
-                                      color: colors.kColorFontPrimary,
+                                      color: colors.kColorFontSecondary,
                                       height: sizes.semiLargePadding)),
                             ),
                             Sizer.horizontal(),
@@ -69,7 +70,8 @@ class _AuctionState extends State<AuctionScreen> {
                               child: IconButton(
                                   onPressed: () {},
                                   icon: SvgPicture.asset(assets.upload,
-                                      height: sizes.semiLargePadding)),
+                                      height: sizes.semiLargePadding,
+                                      color: colors.kColorFontSecondary)),
                             ),
                           ],
                         ),
@@ -117,11 +119,11 @@ class _AuctionState extends State<AuctionScreen> {
                                     width: 1),
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              backgroundColor: Colors.white,
+                              backgroundColor: colors.kColorBackgroud,
                               label: Text(
                                 "#$e",
                                 style: textStyles.kTextRegular.copyWith(
-                                  color: colors.kColorFontPlaceholder,
+                                  color: colors.kColorFontSubSecondary,
                                   fontSize: sizes.smallFontSize,
                                 ),
                               ),
@@ -137,7 +139,8 @@ class _AuctionState extends State<AuctionScreen> {
                         title: Text("View on Etherscan",
                             style: textStyles.kTextTitle),
                         trailing: SvgPicture.asset(assets.external,
-                            height: sizes.pagePadding),
+                            height: sizes.pagePadding,
+                            color: colors.kColorFontSecondary),
                         onTap: () {},
                       ),
                     ),
@@ -145,21 +148,25 @@ class _AuctionState extends State<AuctionScreen> {
                     ShadowContainer(
                         child: ListTile(
                       leading: SvgPicture.asset(assets.starBorder,
-                          height: sizes.pagePadding),
+                          height: sizes.pagePadding,
+                          color: colors.kColorFontSecondary),
                       title: Text("View on IPFS", style: textStyles.kTextTitle),
                       trailing: SvgPicture.asset(assets.external,
-                          height: sizes.pagePadding),
+                          height: sizes.pagePadding,
+                          color: colors.kColorFontSecondary),
                       onTap: () {},
                     )),
                     Sizer(),
                     ShadowContainer(
                         child: ListTile(
                       leading: SvgPicture.asset(assets.pieChart,
-                          height: sizes.pagePadding),
+                          height: sizes.pagePadding,
+                          color: colors.kColorFontSecondary),
                       title: Text("View IPFS in Metadata",
                           style: textStyles.kTextTitle),
                       trailing: SvgPicture.asset(assets.external,
-                          height: sizes.pagePadding),
+                          height: sizes.pagePadding,
+                          color: colors.kColorFontSecondary),
                       onTap: () {},
                     )),
                     Sizer.vertical32(),
@@ -216,7 +223,8 @@ class _AuctionState extends State<AuctionScreen> {
                     borderRadius: BorderRadius.circular(52),
                     child: IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.arrow_back))),
+                        icon: Icon(Icons.arrow_back,
+                            color: colors.kColorFontSecondary))),
               ),
             ),
           ],
@@ -259,7 +267,8 @@ class ActivityTile extends StatelessWidget {
           ],
         ),
       ),
-      trailing: SvgPicture.asset(assets.external, height: sizes.pagePadding),
+      trailing: SvgPicture.asset(assets.external,
+          height: sizes.pagePadding, color: colors.kColorFontSecondary),
       onTap: () {},
     );
   }

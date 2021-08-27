@@ -13,9 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pixel Apps NFT',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: SplashScreen.id,
       onGenerateRoute: AppRouter.router,
     );

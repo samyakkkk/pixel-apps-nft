@@ -58,12 +58,14 @@ class _CreatorProfileState extends State<CreatorProfile> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("52fs5ge5g45sov45a"),
+                              Text("52fs5ge5g45sov45a",
+                                  style: textStyles.kTextRegular),
                               IconButton(
                                   onPressed: () {},
                                   padding: EdgeInsets.all(0),
                                   icon: SvgPicture.asset(assets.copy,
-                                      height: sizes.mediumPadding))
+                                      height: sizes.mediumPadding,
+                                      color: colors.kColorFontSecondary))
                             ],
                           ),
                         ],
@@ -87,7 +89,7 @@ class _CreatorProfileState extends State<CreatorProfile> {
             margin: EdgeInsets.all(sizes.mediumPadding),
             padding: EdgeInsets.all(sizes.regularPadding),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: colors.kColorBackgroudSecondary,
               borderRadius: BorderRadius.circular(32),
             ),
             child: Column(
@@ -100,23 +102,26 @@ class _CreatorProfileState extends State<CreatorProfile> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           ListTile(
-                            leading: SvgPicture.asset(assets.mail),
+                            leading: SvgPicture.asset(assets.mail,
+                                color: colors.kColorFontSecondary),
                             title: Text("Contact@OpenArt.design",
                                 style: textStyles.kTextSubtitle),
                           ),
                           ListTile(
-                            leading: SvgPicture.asset(assets.card),
+                            leading: SvgPicture.asset(assets.card,
+                                color: colors.kColorFontSecondary),
                             title:
                                 Text("Linked", style: textStyles.kTextSubtitle),
                           ),
                           ListTile(
-                            leading: SvgPicture.asset(assets.call),
+                            leading: SvgPicture.asset(assets.call,
+                                color: colors.kColorFontSecondary),
                             title: Text("(+60) 264 859 62",
                                 style: textStyles.kTextSubtitle),
                           ),
                           ListTile(
                             leading: SvgPicture.asset(assets.link,
-                                color: colors.kColorFontPrimary),
+                                color: colors.kColorFontSecondary),
                             title: Text("OpenArt.design",
                                 style: textStyles.kTextSubtitle),
                           ),
@@ -127,7 +132,8 @@ class _CreatorProfileState extends State<CreatorProfile> {
                         borderRadius: BorderRadius.circular(50),
                         child: IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset(assets.edit))),
+                            icon: SvgPicture.asset(assets.edit,
+                                color: colors.kColorFontSecondary))),
                   ],
                 ),
                 Row(
@@ -137,13 +143,15 @@ class _CreatorProfileState extends State<CreatorProfile> {
                       onPressed: () {},
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            side: BorderSide(color: colors.kColorFontSecondary),
                             borderRadius: BorderRadius.circular(5))),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SvgPicture.asset(assets.heart,
-                              height: sizes.semiLargePadding),
+                              height: sizes.semiLargePadding,
+                              color: colors.kColorFontSecondary),
                           Sizer.halfHorizontal(),
                           Text("Follow", style: textStyles.kTextRegular),
                         ],
@@ -154,20 +162,27 @@ class _CreatorProfileState extends State<CreatorProfile> {
                       onPressed: () {},
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            side: BorderSide(color: colors.kColorFontSecondary),
                             borderRadius: BorderRadius.circular(100))),
                       ),
                       child: SvgPicture.asset(assets.upload,
-                          height: sizes.semiLargePadding),
+                          height: sizes.semiLargePadding,
+                          color: colors.kColorFontSecondary),
                     ),
                     Sizer.horizontal(),
                     OutlinedButton(
                       onPressed: () {},
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100))),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                            side: BorderSide(color: colors.kColorFontSecondary),
+                          ),
+                        ),
                       ),
                       child: SvgPicture.asset(assets.more,
-                          height: sizes.semiLargePadding),
+                          height: sizes.semiLargePadding,
+                          color: colors.kColorFontSecondary),
                     ),
                   ],
                 ),

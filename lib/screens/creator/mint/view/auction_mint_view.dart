@@ -31,10 +31,16 @@ class _AuctionMintViewState extends State<AuctionMintView> {
             Expanded(
               child: TextFormField(
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: colors.kColorFontSecondary)),
                   hintText: "0.00",
-                  suffixIcon: Icon(Icons.cancel_rounded),
+                  hintStyle: textStyles.kTextRegular,
+                  fillColor: colors.kColorBackgroudSecondary,
+                  suffixIcon: Icon(Icons.cancel_rounded,
+                      color: colors.kColorFontPlaceholder),
                 ),
+                style: textStyles.kTextRegular,
                 keyboardType: TextInputType.number,
               ),
             ),
@@ -45,15 +51,17 @@ class _AuctionMintViewState extends State<AuctionMintView> {
         Sizer.half(),
         Container(
           decoration: BoxDecoration(
-              color: Colors.grey[200], borderRadius: BorderRadius.circular(8)),
+              color: colors.kColorFontPlaceholder,
+              borderRadius: BorderRadius.circular(8)),
           padding: EdgeInsets.symmetric(
               horizontal: sizes.regularPadding, vertical: sizes.smallPadding),
           child: DropdownButton<String>(
+            dropdownColor: colors.kColorFontPlaceholder,
             value: _startDate,
             isDense: true,
             isExpanded: true,
             underline: SizedBox.shrink(),
-            iconEnabledColor: Colors.black,
+            iconEnabledColor: colors.kColorFontPrimary,
             items: <String>[
               "Right after lisiting",
               "After 2 days",
@@ -83,15 +91,17 @@ class _AuctionMintViewState extends State<AuctionMintView> {
         Sizer.half(),
         Container(
           decoration: BoxDecoration(
-              color: Colors.grey[200], borderRadius: BorderRadius.circular(8)),
+              color: colors.kColorFontPlaceholder,
+              borderRadius: BorderRadius.circular(8)),
           padding: EdgeInsets.symmetric(
               horizontal: sizes.regularPadding, vertical: sizes.smallPadding),
           child: DropdownButton<String>(
+            dropdownColor: colors.kColorFontPlaceholder,
             value: _endDate,
             isDense: true,
             isExpanded: true,
             underline: SizedBox.shrink(),
-            iconEnabledColor: Colors.black,
+            iconEnabledColor: colors.kColorFontPrimary,
             items: <String>["3 days", "1 week", "1 month"]
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(

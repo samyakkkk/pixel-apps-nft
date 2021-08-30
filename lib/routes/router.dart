@@ -36,6 +36,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MintScreen());
       case ProcessScreen.id:
         return MaterialPageRoute(builder: (_) => ProcessScreen());
+
       // Common
       case SplashScreen.id:
         return MaterialPageRoute(builder: (_) => SplashScreen());
@@ -49,11 +50,8 @@ class AppRouter {
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
-        appBar: AppBar(
-          title: const Text('Error'),
-        ),
         body: const Center(
-          child: Text('Error'),
+          child: Text('404 Page Not Found'),
         ),
       );
     });

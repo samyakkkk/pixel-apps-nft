@@ -39,8 +39,8 @@ class InitialScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   LongSolidButton(
-                      onPress: () => Navigator.pushReplacementNamed(
-                          context, CreatorTabBarController.id),
+                      onPress: () => Navigator.pushNamedAndRemoveUntil(context,
+                          CreatorTabBarController.id, (route) => false),
                       text: "Creator",
                       colorList: [
                         colors.kColorBtnBlue,
@@ -48,8 +48,8 @@ class InitialScreen extends StatelessWidget {
                       ]),
                   Sizer(),
                   LongOutlinedButton(
-                      onPress: () => Navigator.pushReplacementNamed(
-                          context, UserTabBarController.id),
+                      onPress: () => Navigator.pushNamedAndRemoveUntil(
+                          context, UserTabBarController.id, (route) => false),
                       text: "User",
                       colorList: [
                         colors.kColorBtnBlue,

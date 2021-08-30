@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.pixelapps.pixel_apps_ntf">
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="pixel_apps_ntf"
         android:icon="@mipmap/ic_launcher">

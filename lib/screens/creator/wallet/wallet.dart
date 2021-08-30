@@ -125,12 +125,13 @@ class WalletStatus extends StatelessWidget {
                 ? LinearGradient(
                     colors: [
                       colors.kColorBtnBlue,
+                      colors.kColorBtnBlue,
                       colors.kColorBtnPurple,
                     ],
                   )
                 : LinearGradient(
                     colors: [
-                      colors.kColorFontPlaceholder,
+                      colors.kColorBackgroudSecondary,
                       colors.kColorShadow,
                     ],
                   ),
@@ -139,8 +140,10 @@ class WalletStatus extends StatelessWidget {
             child: completed
                 ? Icon(Icons.check_outlined, color: Colors.white)
                 : Text(stepNumber,
-                    style: textStyles.kTextBtnText
-                        .copyWith(color: colors.kColorFontPrimary)),
+                    style: textStyles.kTextBtnText.copyWith(
+                        color: selected
+                            ? Colors.white
+                            : colors.kColorFontPrimary)),
           ),
         ),
         Sizer.half(),

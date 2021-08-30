@@ -28,7 +28,7 @@ class SelectWalletView extends StatelessWidget {
                   width: 60,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: colors.kColorFontPlaceholder,
+                        color: colors.kColorBackgroudSecondary,
                         borderRadius: BorderRadius.circular(20)),
                     child: Center(child: Icon(Icons.add)),
                   ),

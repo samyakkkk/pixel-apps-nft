@@ -38,7 +38,7 @@ class _AuctionMintViewState extends State<AuctionMintView> {
                   hintStyle: textStyles.kTextRegular,
                   fillColor: colors.kColorBackgroudSecondary,
                   suffixIcon: Icon(Icons.cancel_rounded,
-                      color: colors.kColorFontPlaceholder),
+                      color: colors.kColorBackgroudSecondary),
                 ),
                 style: textStyles.kTextRegular,
                 keyboardType: TextInputType.number,
@@ -51,12 +51,12 @@ class _AuctionMintViewState extends State<AuctionMintView> {
         Sizer.half(),
         Container(
           decoration: BoxDecoration(
-              color: colors.kColorFontPlaceholder,
+              color: colors.kColorBackgroudSecondary,
               borderRadius: BorderRadius.circular(8)),
           padding: EdgeInsets.symmetric(
               horizontal: sizes.regularPadding, vertical: sizes.smallPadding),
           child: DropdownButton<String>(
-            dropdownColor: colors.kColorFontPlaceholder,
+            dropdownColor: colors.kColorBackgroudSecondary,
             value: _startDate,
             isDense: true,
             isExpanded: true,
@@ -91,12 +91,12 @@ class _AuctionMintViewState extends State<AuctionMintView> {
         Sizer.half(),
         Container(
           decoration: BoxDecoration(
-              color: colors.kColorFontPlaceholder,
+              color: colors.kColorBackgroudSecondary,
               borderRadius: BorderRadius.circular(8)),
           padding: EdgeInsets.symmetric(
               horizontal: sizes.regularPadding, vertical: sizes.smallPadding),
           child: DropdownButton<String>(
-            dropdownColor: colors.kColorFontPlaceholder,
+            dropdownColor: colors.kColorBackgroudSecondary,
             value: _endDate,
             isDense: true,
             isExpanded: true,

@@ -56,7 +56,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               selectedColor: colors.kColorBtnBlue,
                               selected: e == "All items" ? true : false,
                               showCheckmark: false,
-                              backgroundColor: colors.kColorFontPlaceholder,
+                              backgroundColor: colors.kColorBackgroudSecondary,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle.copyWith(
@@ -118,7 +118,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               selectedColor: colors.kColorBtnBlue,
                               selected: e == "Ethereum" ? true : false,
                               showCheckmark: false,
-                              backgroundColor: colors.kColorFontPlaceholder,
+                              backgroundColor: colors.kColorBackgroudSecondary,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle.copyWith(
@@ -145,7 +145,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                   vertical: sizes.tinyPadding),
                               selectedColor: colors.kColorBtnBlue,
                               showCheckmark: false,
-                              backgroundColor: colors.kColorFontPlaceholder,
+                              backgroundColor: colors.kColorBackgroudSecondary,
                               label: Text(
                                 e,
                                 style: textStyles.kTextSubtitle,
@@ -160,7 +160,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     Sizer(),
                     Container(
                       decoration: BoxDecoration(
-                          color: colors.kColorFontPlaceholder,
+                          color: colors.kColorBackgroudSecondary,
                           borderRadius: BorderRadius.circular(8)),
                       padding: EdgeInsets.symmetric(
                           horizontal: sizes.regularPadding,
@@ -205,7 +205,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     OutlinedButton.icon(
                       onPressed: () {},
                       icon: SvgPicture.asset(assets.close,
-                          color: colors.kColorFontPlaceholder),
+                          color: colors.kColorBackgroudSecondary),
                       label: Text("Reset all filter",
                           style: textStyles.kTextSubtitle),
                     ),
